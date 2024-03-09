@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Car price predictor</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    select,
+    input[type="text"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    select,
+    input[type="number"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    select[multiple] {
+      height: auto !important;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    @media only screen and (max-width: 600px) {
+      form {
+        padding: 10px;
+      }
+    }
+  </style>
+  <body>
+    <h1>Select Car Attributes to Predict Price</h1>
+    <form method="POST" action="/">
+      <label for="CarBrand">Brand </label>
+      <select name="Brand" id="CarBrand">
+        <option value="14">Ford</option>
+        <option value="4">BMW</option>
+        <option value="36">Mercedes-Benz</option>
+        <option value="9">Chevrolet</option>
+        <option value="43">Audi</option>
+        <option value="3">Toyota</option>
+        <option value="53">Lexus</option>
+        <option value="27">Jeep</option>
+        <option value="22">Land</option>
+        <option value="26">Nissan</option>
+        <option value="39">Cadillac</option>
+        <option value="8">GMC</option>
+        <option value="15">RAM</option>
+        <option value="44">Dodge</option>
+        <option value="11">Tesla</option>
+        <option value="52">Kia</option>
+        <option value="29">Hyundai</option>
+        <option value="19">Mazda</option>
+        <option value="34">Acura</option>
+        <option value="0">Subaru</option>
+      </select>
+
+      <label for="CarModel">Model </label>
+      <select name="Model" id="CarModel">
+        <option value="970">M3 Base</option>
+        <option value="670">F-150 XLT</option>
+        <option value="505">1500 Laramie</option>
+        <option value="10">Corvette Base</option>
+        <option value="401">Camaro 2SS</option>
+        <option value="1832">XE 25t</option>
+        <option value="994">MC20 Base</option>
+        <option value="145">911 Carrera 4 Cabriolet</option>
+        <option value="78">488 GTB Base</option>
+        <option value="1677">Taycan</option>
+      </select>
+
+      <label for="Yr">Year </label>
+      <input type="number" id="Yr" name="Year" />
+      <label for="ml">Millege </label>
+      <input type="text" id="ml" name="Millege" />
+
+      <label for="Fuel">Fuel type </label>
+      <select name="Fuel" id="Fuel">
+        <option value="2">Gasoline</option>
+        <option value="3">Hybrid</option>
+        <option value="7">E85 Flex Fuel</option>
+        <option value="0">Diesel</option>
+        <option value="4">Plug-In Hybrid</option>
+        <option value="5">not supported</option>
+      </select>
+
+      <label for="Speed">Speed </label>
+      <select name="Speed" id="Speed">
+        <option value="1.0">1.0</option>
+        <option value="2.0">2.0</option>
+        <option value="4.0">4.0</option>
+        <option value="5.0">5.0</option>
+        <option value="6.0">6.0</option>
+        <option value="7.0">7.0</option>
+        <option value="8.0">8.0</option>
+        <option value="9.0">9.0</option>
+        <option value="10.0">10.0</option>
+      </select>
+      <br />
+      <br />
+      <label for="L">Litre</label>
+      <input type="number" id="L" name="Litre" />
+
+      <label for="Transmission">Transmission </label>
+      <select name="Transmission" id="Transmission">
+        <option value="38">A/T</option>
+        <option value="31">8-Speed A/T</option>
+        <option value="59">Transmission w/Dual Shift Mode</option>
+        <option value="16">6-Speed A/T</option>
+        <option value="20">6-Speed M/T</option>
+        <option value="47">Automatic, 8-Spd PDK Dual-Clutch</option>
+        <option value="39">Auto, 6-Spd w/CmdShft</option>
+        <option value="48">
+          Automatic, 8-Spd Sport w/Sport & Manual Modes
+        </option>
+        <option value="51">CVT-F</option>
+        <option value="34">8-Speed Manual</option>
+      </select>
+
+      <label for="Exterior Color">Exterior Color </label>
+      <select name="Exterior Color" id="Exterior Color">
+        <option value="29">Black</option>
+        <option value="304">White</option>
+        <option value="128">Gray</option>
+        <option value="263">Silver</option>
+        <option value="38">Blue</option>
+        <option value="6">Anthracite Blue Metallic</option>
+        <option value="185">Moonlight Cloud</option>
+        <option value="266">Silver Mist</option>
+        <option value="64">Cirrus Silver Metallic</option>
+        <option value="50">C / C</option>
+      </select>
+
+      <label for="Interior Color">Interior Color </label>
+      <select name="Interior Color" id="Interior Color">
+        <option value="14">Black</option>
+        <option value="10">White</option>
+        <option value="71">Gray</option>
+        <option value="31">Silver</option>
+        <option value="155">Blue</option>
+        <option value="3">Anthracite Blue Metallic</option>
+        <option value="80">Moonlight Cloud</option>
+        <option value="128">Silver Mist</option>
+        <option value="142">Cirrus Silver Metallic</option>
+        <option value="17">C / C</option>
+      </select>
+      <br />
+      <br />
+      <label for="Accident">Accident </label>
+      <select name="Accident" id="Accident">
+        <option value="0">Reported</option>
+        <option value="1">No Reported</option>
+      </select>
+
+      <label for="Clean Title">Clean Title </label>
+      <select name="Clean Title" id="Clean Title">
+        <option value="0">Yes</option>
+        <option value="1">No</option>
+      </select>
+
+      <label for="Cylinder">Cylinder </label>
+      <select name="Cylinder" id="Cylinder">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="4">3</option>
+        <option value="5">4</option>
+        <option value="6">5</option>
+        <option value="7">6</option>
+        <option value="8">7</option>
+      </select>
+
+      <label for="Turbo">Turbo </label>
+      <select name="Turbo" id="Turbo">
+        <option value="0">Turbo</option>
+        <option value="1">Twin Turbo</option>
+        <option value="2">Not Available</option>
+      </select>
+
+      <label for="EngineType">EngineType </label>
+      <select name="EngineType" id="EngineType">
+        <option value="0">Not Available</option>
+        <option value="1">Gasoline</option>
+        <option value="2">Diesel</option>
+        <option value="3">Electric</option>
+        <option value="4">DOHC</option>
+        <option value="5">Flex Fuel</option>
+      </select>
+
+      <label for="HP">Horse Power </label>
+      <input type="number" id="HP" name="HP" />
+
+      <label for="V">V </label>
+      <select name="V" id="V">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+
+      <label for="PDI">PDI </label>
+      <select name="PDI" id="PDI">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+      <br />
+      <br />
+
+      <label for="TFSI">TFSI </label>
+      <select name="TFSI" id="TFSI">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="GDI">GDI </label>
+      <select name="GDI" id="TFSI">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="SOHC">SOHC </label>
+      <select name="SOHC" id="SOHC">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="DOHC">DOHC </label>
+      <select name="DOHC" id="DOHC">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="Straight">Straight </label>
+      <select name="Straight" id="Straight">
+        <option value="0">True</option>
+        <option value="1">False</option>
+      </select>
+
+      <label for="AT">A/T </label>
+      <select name="AT" id="AT">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="Automatic">Automatic </label>
+      <select name="Automatic" id="Automatic">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="Auto-Shift">Auto-Shift </label>
+      <select name="Auto_Shift" id="Auto-Shift">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="Dual Shift Modet">Dual Shift Mode </label>
+      <select name="Dual_Shift_Mode" id="Dual Shift Mode">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="CVT">CVT </label>
+      <select name="CVT" id="CVT">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+      <br />
+      <br />
+
+      <label for="Overdrive">Overdrive </label>
+      <select name="Overdrive" id="Overdrive">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="M/T">M/T</label>
+      <select name="M/T" id="M/T">
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+
+      <br />
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+    </form>
+  </body>
+</html>
