@@ -32,7 +32,7 @@ To run the backend of this project, follow these steps:
 
 4. **Run the Flask Server:**
    ```bash
-   flask run
+   python App.py
    ```
 
 After running these commands, the Flask server should start, and you can access the backend endpoints.
