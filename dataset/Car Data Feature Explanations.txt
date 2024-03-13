@@ -1,0 +1,13 @@
+Brand: Brand or company name
+Model: Specific model
+Model Year: Year of manufacturing
+Mileage: The mileage of each vehicle
+Fuel Type: Type of fuel the vehicles run on
+Engine Type: Type of engine
+Liter: The liters that the engine can hold
+Transmission: The transmission type
+Speed: Speed of transmission
+Exterior & Interior Colors: Exterior and Interior Colors
+Accident: Accident History
+Clean Title: Whether the car is owned entirely by the seller
+Price: Price listed by the seller
